@@ -1,0 +1,58 @@
+Ce que je dois parser (et comment):
+✅ 1. Textures
+💡 À faire :
+
+   *  Lire la ligne.
+   * ft_strncmp(line, "NO ", 3) etc.
+   * Récupérer le chemin avec ft_strtrim après l’espace
+   * Vérifier que le fichier existe (optionnel mais conseillé)
+
+✅ 2. Couleurs
+💡 À faire :
+
+   * Identifier la ligne avec F ou C .
+   * Trim après .
+   * ft_split(..., ',') pour séparer les 3 valeurs .
+   -> Vérifier :
+   * qu’il y a exactement 3 morceaux .
+   * qu’aucun n’est vide .
+   * que tous sont numériques .
+   * que tous sont dans [0-255] .
+   * calculer .
+
+✅ 3. La Map
+    - Map présente et non vide . ✅
+    - Caractères autorisés (0, 1, N, S, E, W, ' ' parfois) . ✅
+    - Un seul joueur (N, S, E ou W) ou gestion d’erreur s’il y en a 2 . ✅
+    - Contours de la map fermés (pas de “trous” où on peut sortir) . ✅
+    - Pas de ligne vide dans la map, etc . ✅
+
+________________________________________________________
+
+--> CE QUE JE PARSE DÉJA :
+	* color ✅ .
+	* Textures ✅ .
+	* map ✅ .
+_________________________________________________________________________________________
+
+--> ce qui reste :
+   - télécharge pictures et ecnvertit en xpm .
+   - norminette .
+   - WASD (déplacements) . -> ✅ (fait par asmae) .
+   - Flèches (rotation) . -> ✅ (fait par asmae) .
+   - Fermeture ESC .
+   - Gérer la croix rouge (fermeture de la fenêtre) .
+   - Un README.md pour expliquer ton projet (optionnel mais utile) .
+   _________________________________________________________
+
+   -> j'ai stopé in parse color norminette !!
+
+	ls Probs que j'ai :
+   --> 🚨 i have a probleme in empty ligne !? 🚨 a la fin fichier .(le probléme vient de GNL est ignorer le ligne vide a la fin) .
+
+   - PROGRAMME BADR:
+      -> 6h projet (24post fb et 4 site) .
+      -> 3h lafac: (analyse fin - compta des societe)
+         - les video et les séance et soyer toujeour present
+         - regard les video et esseye de déviser les chapitre du cours
+            pour bien etre sait ce que tu dois faire , chaque chapitre .
