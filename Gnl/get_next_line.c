@@ -6,22 +6,11 @@
 /*   By: feljourb <feljourb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 06:31:41 by feljourb          #+#    #+#             */
-/*   Updated: 2025/04/11 22:26:19 by feljourb         ###   ########.fr       */
+/*   Updated: 2025/04/19 01:13:03 by feljourb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static char	*g_save;
-
-void	free_gnl(void)
-{
-	if (g_save)
-	{
-		free(g_save);
-		g_save = NULL;
-	}
-}
 
 char	*read_file(int fd, char *g_save)
 {
@@ -106,7 +95,15 @@ char	*ft_save(char *g_save, char *line)
 char	*get_next_line(int fd)
 {
 	char		*line;
+	static char	*g_save;
 
+	if (fd == -42)
+	{
+		if (g_save)
+			free(g_save);
+		g_save = NULL;
+		return NULL;
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	g_save = read_file(fd, g_save);

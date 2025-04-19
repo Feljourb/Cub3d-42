@@ -6,7 +6,7 @@
 /*   By: feljourb <feljourb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 06:32:36 by feljourb          #+#    #+#             */
-/*   Updated: 2025/04/11 21:57:21 by feljourb         ###   ########.fr       */
+/*   Updated: 2025/04/19 01:07:39 by feljourb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # endif
 
 char	*get_next_line(int fd);
-void	free_gnl(void);
+// void	free_gnl(void);
 int		f_strlen(char *str);
 int		f_strchr(char *g_save);
 char	*f_strjoin(char *buff, char *g_save);

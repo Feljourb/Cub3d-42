@@ -6,7 +6,7 @@
 /*   By: feljourb <feljourb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 01:59:21 by feljourb          #+#    #+#             */
-/*   Updated: 2025/04/18 07:06:14 by feljourb         ###   ########.fr       */
+/*   Updated: 2025/04/19 03:37:21 by feljourb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*extract_texture_path(char *line)
 {
 	int		i;
 	char	*path;
-	// int		fd;
+	int		fd;
 
 	i = 0;
 	while (line[i] && line[i] != ' ')
@@ -48,10 +48,10 @@ char	*extract_texture_path(char *line)
 		return (texture_error("Error: texture path is missing or empty!\n", path));
 	if (!has_xpm_extension(path))
 		return (texture_error("Error: texture file must be .xpm\n", path));
-	// fd = open(path, O_RDONLY);
-	// if (fd < 0)
-	// 	return (texture_error("Error: texture file not found\n", path));
-	// close(fd);
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (texture_error("Error: texture file not found\n", path));
+	close(fd);
 	return (path);
 }
 
@@ -74,7 +74,7 @@ static void	assign_texture(char **texture, char *path,
 	{
 		free(path);
 		free(txtctx->line);
-		free_gnl();
+		get_next_line(-42);
 		free_all(txtctx->config_txt, txtctx->map, txtctx->str);
 		exit(write(2, error_mssg, ft_strlen(error_mssg)));
 	}
@@ -108,7 +108,7 @@ void	config_texture(char *line, t_config *config_txt, t_map *map, char *str)
 	{
 		free_all(config_txt, map, str);
 		free(line);
-		free_gnl();
+		get_next_line(-42);
 		exit(1);
 	}
 	//initialisé la struct txtctx

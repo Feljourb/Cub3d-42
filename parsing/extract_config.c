@@ -6,7 +6,7 @@
 /*   By: feljourb <feljourb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 01:44:26 by feljourb          #+#    #+#             */
-/*   Updated: 2025/04/16 19:17:24 by feljourb         ###   ########.fr       */
+/*   Updated: 2025/04/19 01:05:45 by feljourb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	handle_unknown_line(char *line, t_closed *closed,
 		write(2, "Error: unknown line in .cub file\n", 33);
 	free_all(closed->config, closed->map, str);
 	free(line);
-	free_gnl();
+	get_next_line(-42);
 	exit(1);
 }
 
@@ -40,7 +40,7 @@ static void	handle_emty_line(char *line, t_config *config,
 	write(2, "Error: empty line in map section\n", 33);
 	free(line);
 	free_all(config, map, str);
-	free_gnl();
+	get_next_line(-42);
 	exit(1);
 }
 

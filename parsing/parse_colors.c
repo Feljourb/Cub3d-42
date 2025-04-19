@@ -6,7 +6,7 @@
 /*   By: feljourb <feljourb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 00:41:48 by feljourb          #+#    #+#             */
-/*   Updated: 2025/04/18 06:57:58 by feljourb         ###   ########.fr       */
+/*   Updated: 2025/04/19 01:05:45 by feljourb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	set_floor_colors(t_config *config_clr, t_map *map,
 	{
 		free_all(config_clr, map, str);
 		free(line);
-		free_gnl();
+		get_next_line(-42);
 		exit(write(2, "Error: duplicate F\n", 19));
 	}
 	color = extract_clr(line);
@@ -102,7 +102,7 @@ static void	set_floor_colors(t_config *config_clr, t_map *map,
 	{
 		free_all(config_clr, map, str);
 		free(line);
-		free_gnl();
+		get_next_line(-42);
 		exit (1);
 	}
 	config_clr->floor_color = color;
@@ -117,7 +117,7 @@ static void	set_ceiling_color(t_config *config_clr, t_map *map,
 	{
 		free_all(config_clr, map, str);
 		free(line);
-		free_gnl();
+		get_next_line(-42);
 		exit(write(2, "Error: duplicate C\n", 19));
 	}
 	color = extract_clr(line);
@@ -125,7 +125,7 @@ static void	set_ceiling_color(t_config *config_clr, t_map *map,
 	{
 		free_all(config_clr, map, str);
 		free(line);
-		free_gnl();
+		get_next_line(-42);
 		exit (1);
 	}
 	config_clr->ceiling_color = color;
